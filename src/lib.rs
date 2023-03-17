@@ -37,8 +37,12 @@
 //!         .build()
 //!         .await?;
 //!
-//!     let public_ip = tianyi.wanip().await?;
-//!     println!("Public IP: {}", public_ip);
+//!     let old_ip = "192.168.1.11";
+//!     let new_ip = "192.168.1.12";
+//! 
+//!     tianyi_instance.update_port_forwarding_rule(old_ip, new_ip).await?;
+//! 
+//!     println!("Port forwarding rules updated successfully.");
 //!
 //!     Ok(())
 //! }
@@ -127,59 +131,59 @@ pub struct Tianyi {
 #[derive(Debug, Deserialize)]
 pub struct GatewayInfo {
     #[serde(rename = "LANIP")]
-    lan_ip: String,
+    pub lan_ip: String,
     #[serde(rename = "LANIPv6")]
-    lan_ipv6: String,
+    pub lan_ipv6: String,
     #[serde(rename = "MAC")]
-    mac: String,
+    pub mac: String,
     #[serde(rename = "WANIP")]
-    wan_ip: String,
+    pub wan_ip: String,
     #[serde(rename = "WANIPv6")]
-    wan_ipv6: String,
+    pub wan_ipv6: String,
     #[serde(rename = "ProductSN")]
-    product_sn: String,
+    pub product_sn: String,
     #[serde(rename = "DevType")]
-    dev_type: String,
+    pub dev_type: String,
     #[serde(rename = "SWVer")]
-    sw_ver: String,
+    pub sw_ver: String,
     #[serde(rename = "ProductCls")]
-    product_cls: String,
+    pub product_cls: String,
 }
 
 /// Represents a port forwarding rule, including its properties and settings.
 #[derive(Debug, Deserialize, Clone)]
 pub struct PortForwardingRule {
     #[serde(rename = "protocol")]
-    protocol: String,
+    pub protocol: String,
     #[serde(rename = "inPort")]
-    in_port: u16,
+    pub in_port: u16,
     #[serde(rename = "enable")]
-    enable: u8,
+    pub enable: u8,
     #[serde(rename = "desp")]
-    description: String,
+    pub description: String,
     #[serde(rename = "client")]
-    client: String,
+    pub client: String,
     #[serde(rename = "exPort")]
-    ex_port: u16,
+    pub ex_port: u16,
 }
 
 /// Represents the data returned by the router when retrieving a list of port forwarding rules.
 #[derive(Debug, Deserialize)]
 pub struct PortForwardingData {
     #[serde(rename = "mask")]
-    mask: String,
+    pub mask: String,
     #[serde(rename = "lanIp")]
-    lan_ip: String,
+    pub lan_ip: String,
     #[serde(rename = "count")]
-    count: u32,
+    pub count: u32,
     #[serde(flatten)]
-    rules: HashMap<String, PortForwardingRule>,
+    pub rules: HashMap<String, PortForwardingRule>,
 }
 
 #[derive(Debug, Deserialize)]
 pub struct ActionResult {
     #[serde(rename = "retVal")]
-    ret_val: i32,
+    pub ret_val: i32,
 }
 
 /// Represents the different actions that can be performed on a port forwarding rule.

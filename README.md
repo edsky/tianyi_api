@@ -52,4 +52,4 @@ async fn main() -> Result<()> {
 
 ## 许可证
 
-本项目采用MIT许可证。详情请参阅 [LICENSE](https://github.com/edsky/tiany_api/LICENSE) 文件。
+本项目采用MIT许可证。详情请参阅 [LICENSE](https://github.com/edsky/tianyi_api/blob/main/LICENSE) 文件。

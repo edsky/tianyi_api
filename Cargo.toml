@@ -1,0 +1,16 @@
+[package]
+name = "tianyi_api"
+version = "0.1.0"
+edition = "2021"
+authors = ["edsky <dead.ash@hotmail.com>"]
+description = "An unofficial API for Tianyi routers, supporting various features like getting public IP, updating port forwarding rules, etc."
+license = "MIT"
+repository = "https://github.com/edsky/tianyi_api"
+
+[dependencies]
+anyhow = "1.0"
+rand = "0.8"
+regex = "1.7"
+reqwest = { version = "0.11", features = ["json", "cookies"] }
+serde = "1.0"
+serde_json = "1.0"

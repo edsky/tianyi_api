@@ -219,9 +219,7 @@ impl Tianyi {
     /// Returns an `Error` if there is a problem connecting to the router or logging in.
     async fn new(ip: &str, username: &str, password: &str) -> Result<Self> {
         let url = format!("http://{}", ip);
-        let proxy = Proxy::http("http://127.0.0.1:8083")?;
         let client = Client::builder()
-            .proxy(proxy)
             .cookie_store(true)
             .build()?;
         let login_payload = [("username", username), ("psd", password)];

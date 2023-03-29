@@ -1,6 +1,6 @@
 [package]
 name = "tianyi_api"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["edsky <dead.ash@hotmail.com>"]
 description = "An unofficial API for Tianyi routers, supporting various features like getting public IP, updating port forwarding rules, etc."
